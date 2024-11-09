@@ -1,101 +1,153 @@
-import Image from "next/image";
+'use client'
 
-export default function Home() {
+import React, { useState, useMemo } from 'react'
+import { Navbar } from '@/components/Navbar'
+import { VacancyList } from '@/components/VacancyList'
+import { VacancyModal } from '@/components/VacancyModal'
+import { Search } from 'lucide-react'
+import type { Vacancy } from './types/vacancy'
+import { useVacancies } from './context/VacancyContext'
+
+interface DashboardStats {
+  totalResumes: number
+  reviewedResumes: number
+}
+
+export default function Page() {
+  const [vacancies, setVacancies] = useState<Vacancy[]>([])
+  const [searchQuery, setSearchQuery] = useState('')
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [editingVacancy, setEditingVacancy] = useState<Vacancy | null>(null)
+  const [dashboardStats] = useState<DashboardStats>({
+    totalResumes: 156,
+    reviewedResumes: 89
+  })
+  const { addToArchive } = useVacancies()
+
+  const filteredVacancies = useMemo(() => {
+    if (!searchQuery.trim()) return vacancies;
+
+    const query = searchQuery.toLowerCase().trim();
+    return vacancies.filter(vacancy => 
+      vacancy.title.toLowerCase().includes(query) ||
+      vacancy.area.toLowerCase().includes(query) ||
+      vacancy.workFormat.toLowerCase().includes(query) ||
+      `${vacancy.salaryFrom} - ${vacancy.salaryTo}`.includes(query)
+    );
+  }, [vacancies, searchQuery]);
+
+  const handleSaveVacancy = (vacancy: Vacancy) => {
+    if (editingVacancy) {
+      setVacancies(vacancies.map(v => v.id === editingVacancy.id ? vacancy : v))
+    } else {
+      setVacancies([...vacancies, { ...vacancy, id: Date.now() }])
+    }
+    setIsModalOpen(false)
+    setEditingVacancy(null)
+  }
+
+  const handleEditVacancy = (vacancy: Vacancy) => {
+    setEditingVacancy(vacancy)
+    setIsModalOpen(true)
+  }
+
+  const handleArchiveVacancy = (vacancy: Vacancy) => {
+    setVacancies(vacancies.filter(v => v.id !== vacancy.id))
+    addToArchive(vacancy)
+  }
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <main className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
+      <Navbar />
+      <div className="container mx-auto px-4 py-8">
+        <div className="bg-white rounded-xl shadow-lg p-8 mb-16">
+          <h2 className="text-2xl font-bold text-gray-800 mb-4">Обзор вакансии</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="bg-blue-100 rounded-lg p-4 transition-transform duration-300 hover:scale-105 cursor-pointer">
+              <p className="text-lg font-semibold text-blue-800">Резюме в базе данных</p>
+              <p className="text-3xl font-bold text-blue-600">{dashboardStats.totalResumes}</p>
+            </div>
+            <div className="bg-green-100 rounded-lg p-4 transition-transform duration-300 hover:scale-105 cursor-pointer">
+              <p className="text-lg font-semibold text-green-800">Активных вакансии</p>
+              <p className="text-3xl font-bold text-green-600">{vacancies.length}</p>
+            </div>
+            <div className="bg-yellow-100 rounded-lg p-4 transition-transform duration-300 hover:scale-105 cursor-pointer">
+              <p className="text-lg font-semibold text-yellow-800">Архивных вакансии</p>
+              <p className="text-3xl font-bold text-yellow-600">{dashboardStats.reviewedResumes}</p>
+            </div>
+          </div>
+          
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+
+        <h2 className="text-3xl font-bold text-gray-800 text-center mb-16">Активные вакансии</h2>
+        
+        {vacancies.length > 0 ? (
+          <div className="bg-white rounded-xl shadow-lg p-8">
+            <div className="mb-6 relative">
+              <div className="relative">
+                <input
+                  type="text"
+                  placeholder="Поиск по вакансиям..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full px-4 py-3 pl-12 text-lg rounded-lg border-2 border-gray-300 focus:border-blue-500 focus:ring focus:ring-blue-200 transition-all"
+                />
+                <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+              </div>
+              <div className="mt-4 flex justify-between items-center">
+                {searchQuery && (
+                  <div className="text-sm text-gray-500">
+                    Найдено результатов: {filteredVacancies.length}
+                  </div>
+                )}
+                <div className="fixed bottom-8 right-8">
+                  <button 
+                    className="bg-blue-600 hover:bg-blue-700 text-white font-semibold p-4 rounded-full transition duration-300 ease-in-out shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                    onClick={() => setIsModalOpen(true)}
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+            
+            {filteredVacancies.length > 0 ? (
+              <VacancyList vacancies={filteredVacancies} onEdit={handleEditVacancy} />
+            ) : (
+              <div className="text-center py-8">
+                <p className="text-gray-500">По вашему запросу ничего не найдено</p>
+              </div>
+            )}
+          </div>
+        ) : (
+          <div className="text-center">
+            <p className="text-xl text-gray-500 mb-8">У вас пока нет активных вакансий.</p>
+            
+            <button 
+              className="bg-transparent hover:bg-blue-600 text-blue-600 hover:text-white text-2xl font-bold py-6 px-12 border-4 border-blue-600 hover:border-transparent rounded-full transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-xl"
+              onClick={() => setIsModalOpen(true)}
+            >
+              Создать вакансию
+            </button>
+          
+          </div>
+
+
+        )}
+
+        <VacancyModal
+          isOpen={isModalOpen}
+          onClose={() => {
+            setIsModalOpen(false)
+            setEditingVacancy(null)
+          }}
+          onSave={handleSaveVacancy}
+          onArchive={editingVacancy ? handleArchiveVacancy : undefined}
+          vacancy={editingVacancy}
+        />
+      </div>
+    </main>
+  )
 }
