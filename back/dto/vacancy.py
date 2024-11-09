@@ -21,7 +21,10 @@ class Vacancy(BaseModel):
          
 class VacancyResponse(Vacancy):
     id: int
-
+    
+    class Config:
+        orm_mode = True
 
 class VacancyList(BaseModel):
     items: List[VacancyResponse]
+    

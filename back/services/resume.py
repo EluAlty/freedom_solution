@@ -33,11 +33,11 @@
 
 
 import requests
-from dto import resume
-from fastapi import UploadFile
+from dto import resume, resume_db
+from model import resume_db as ResumeModel
 import os
 
-access_token = "secret"
+access_token = "USERP5E3SRULNMM1IE8UPSMA9U6A7698JE2FL7EVP47BK5VEL0DA351VJ745JR0J"
 
 headers = {
     "Authorization": f"Bearer {access_token}"
@@ -60,7 +60,6 @@ def get_resumes(
 ) -> "resume.ResumeResponse":
     params = {
         "text": text,
-        "area": "40",
         "per_page": 20,
         "page": page,
         "text.logic": "all",
@@ -71,6 +70,7 @@ def get_resumes(
         params["experience"] = experience
     if area is not None:
         params["area"] = area
+    else: params["area"] = "40"
     if relocation is not None:
         params["relocation"] = relocation
     if employment is not None:
@@ -110,5 +110,44 @@ def get_resume_by_id(id: str):
     if response.status_code == 200:
         return response.json()
     else:
-        print({"error": f"Резюме с ID {id} не найдено", "status_code": response.status_code})
+        err = {"error": f"Резюме с ID {id} не найдено", "status_code": response.status_code}
+        print(err)
+        return err
+    
+def download_resume_pdf(download_url: str) -> bytes:
+    response = requests.get(download_url, headers=headers)
+    
+    if response.status_code == 200:
+        return response.content
+    else:
+        print(f"Error downloading resume PDF: {response.status_code} - {response.text}")
         return None
+    
+def add_resumes_to_storage(list: resume_db.ResumeDbList, db):
+    for resume_data in list.items:
+        resume = ResumeModel.Resume(
+            title=resume_data.title,
+            area=resume_data.area,
+            experience=resume_data.experience,
+            education=resume_data.education,
+            file_name=resume_data.file_name,
+            hh_url=resume_data.hh_url,
+            hh_id=resume_data.hh_id
+        )
+        
+        db.add(resume)
+    
+    db.commit()
+
+    return
+
+def get_resumes_from_local_storage(db):
+    return db.query(ResumeModel.Resume).all()  
+    
+
+
+
+
+
+
+

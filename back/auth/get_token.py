@@ -7,7 +7,7 @@ client_secret = os.environ.get("client_secret")
 
 redirect_uri = "http://localhost:8080"
 
-authorization_code = "code"
+authorization_code = "SFBG1U2PLU0L6OFVKKJ2G6O9TFVKD11BFNRKJOKGHHBJOD5AQ20HRSRG3016ULJJ"
 
 data = {
     "grant_type": "authorization_code",

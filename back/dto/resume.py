@@ -1,5 +1,6 @@
 from dataclasses import dataclass, field
 from typing import Optional, List, Dict
+from pydantic import BaseModel
 
 @dataclass
 class Area:
@@ -125,3 +126,7 @@ class ResumeResponse:
         self.page = page
         self.pages = pages
         self.per_page = per_page
+
+class DownloadResumeRequest(BaseModel):
+    resume_url: str
+    resume_id: str
