@@ -1,59 +1,82 @@
 import React, { useState, useEffect } from 'react';
-import { Vacancy } from '../app/types/types';
+import { Vacancy } from '../app/types/vacancy';
+import { Button } from '../components/button';
 
 interface VacancyModalProps {
   isOpen: boolean;
   onClose: () => void;
   onSave: (vacancy: Vacancy) => void;
+  onArchive?: (vacancy: Vacancy) => void;
   vacancy: Vacancy | null;
 }
 
-export const VacancyModal: React.FC<VacancyModalProps> = ({ isOpen, onClose, onSave, vacancy }) => {
-  const [formData, setFormData] = useState<Vacancy>({
-    id: 0,
-    title: '',
-    experience: 'no_experience',
-    salaryFrom: '',
-    salaryTo: '',
-    currency: 'RUB',
-    workFormat: 'remote',
-    education: 'high_school',
-    ageFrom: '',
-    ageTo: '',
-    relocation: false
-  });
+const formatNumber = (value: string): string => {
+  // Удаляем все нечисловые символы, кроме цифр
+  const numbers = value.replace(/[^\d]/g, '');
+  // Форматируем число с пробелами
+  return numbers.replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+};
+
+const unformatNumber = (value: string): string => {
+  // Удаляем все нечисловые символы, оставляем только цифры
+  return value.replace(/[^\d]/g, '');
+};
+
+const initialState: Vacancy = {
+  id: 0,
+  title: '',
+  experience: 'no_experience',
+  salaryFrom: 0,
+  salaryTo: 0,
+  currency: 'RUB',
+  workFormat: 'remote',
+  education: 'high_school',
+  ageFrom: '',
+  ageTo: '',
+  relocation: false,
+  area: 'Караганда'
+};
+
+export const VacancyModal: React.FC<VacancyModalProps> = ({ isOpen, onClose, onSave, onArchive, vacancy }) => {
+  const [formData, setFormData] = useState<Vacancy>(initialState);
+  const [showArchiveConfirm, setShowArchiveConfirm] = useState(false);
 
   useEffect(() => {
     if (vacancy) {
       setFormData(vacancy);
     } else {
-      setFormData({
-        id: 0,
-        title: '',
-        experience: 'no_experience',
-        salaryFrom: '',
-        salaryTo: '',
-        currency: 'RUB',
-        workFormat: 'remote',
-        education: 'high_school',
-        ageFrom: '',
-        ageTo: '',
-        relocation: false
-      });
+      setFormData(initialState);
     }
   }, [vacancy]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value, type } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: type === 'checkbox' ? (e.target as HTMLInputElement).checked : value
-    }));
+    
+    if (name === 'salaryFrom' || name === 'salaryTo') {
+      const unformattedValue = unformatNumber(value);
+      setFormData(prev => ({
+        ...prev,
+        [name]: Number(unformattedValue)
+      }));
+    } else {
+      setFormData(prev => ({
+        ...prev,
+        [name]: type === 'checkbox' ? (e.target as HTMLInputElement).checked : value
+      }));
+    }
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     onSave(formData);
+  };
+
+  const handleArchive = () => {
+    if (vacancy && onArchive) {
+      onArchive(vacancy);
+      setShowArchiveConfirm(false);
+      onClose();
+    }
   };
 
   if (!isOpen) return null;
@@ -119,14 +142,14 @@ export const VacancyModal: React.FC<VacancyModalProps> = ({ isOpen, onClose, onS
                   Зарплата от
                 </label>
                 <input
-                  type="number"
+                  type="text"
                   id="salaryFrom"
                   name="salaryFrom"
-                  value={formData.salaryFrom}
+                  value={formData.salaryFrom ? formatNumber(formData.salaryFrom.toString()) : ''}
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-3 text-lg rounded-lg border-2 border-gray-300 focus:border-blue-500 focus:ring focus:ring-blue-200 transition-all"
-                  placeholder="Например: 50000"
+                  placeholder="Например: 50.000"
                 />
               </div>
               <div>
@@ -134,14 +157,14 @@ export const VacancyModal: React.FC<VacancyModalProps> = ({ isOpen, onClose, onS
                   Зарплата до
                 </label>
                 <input
-                  type="number"
+                  type="text"
                   id="salaryTo"
                   name="salaryTo"
-                  value={formData.salaryTo}
+                  value={formData.salaryTo ? formatNumber(formData.salaryTo.toString()) : ''}
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-3 text-lg rounded-lg border-2 border-gray-300 focus:border-blue-500 focus:ring focus:ring-blue-200 transition-all"
-                  placeholder="Например: 100000"
+                  placeholder="Например: 100.000"
                 />
               </div>
               <div>
@@ -240,15 +263,52 @@ export const VacancyModal: React.FC<VacancyModalProps> = ({ isOpen, onClose, onS
               <label htmlFor="relocation" className="ml-2 block text-sm text-gray-700">Готовность к релокации</label>
             </div>
           </div>
-          <div className="mt-6 flex justify-end space-x-3">
-            <button type="button" onClick={onClose} className="px-4 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-              Закрыть
-            </button>
-            <button type="submit" className="px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-              Сохранить
-            </button>
+          <div className="mt-6 flex justify-between">
+            {vacancy && onArchive && (
+              <Button
+                variant="ghost"
+                size="lg"
+                className="text-red-600 hover:text-red-700 hover:bg-red-50"
+                onClick={() => setShowArchiveConfirm(true)}
+              >
+                Архивировать
+              </Button>
+            )}
+            <div className={`flex space-x-3 ${!vacancy ? 'ml-auto' : ''}`}>
+              <Button variant="outline" size="lg" onClick={onClose}>
+                Закрыть
+              </Button>
+              <Button type="submit" size="lg">
+                Сохранить
+              </Button>
+            </div>
           </div>
         </form>
+
+        {showArchiveConfirm && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+            <div className="bg-white rounded-lg p-6 max-w-md w-full mx-4">
+              <h3 className="text-xl font-semibold mb-4">Подтверждение архивации</h3>
+              <p className="text-gray-600 mb-6">
+                Вы уверены, что хотите архивировать эту вакансию? Она будет перемещена в раздел архива.
+              </p>
+              <div className="flex justify-end space-x-3">
+                <Button 
+                  variant="outline" 
+                  onClick={() => setShowArchiveConfirm(false)}
+                >
+                  Отмена
+                </Button>
+                <Button 
+                  variant="destructive"
+                  onClick={handleArchive}
+                >
+                  Архивировать
+                </Button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Vacancy } from '../app/types/types';
+import { Vacancy } from '../app/types/vacancy';
 import { VacancyCard } from './VacancyCard';
 
 interface VacancyListProps {

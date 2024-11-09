@@ -77,11 +77,33 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose, onSav
     onSave(formData);
   };
 
+  const handleBackdropClick = (e: React.MouseEvent) => {
+    if (e.target === e.currentTarget) {
+      onClose();
+    }
+  };
+
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener('keydown', handleEscape);
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleEscape);
+    };
+  }, [isOpen, onClose]);
+
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-      <div className="bg-white rounded-xl w-full max-w-4xl max-h-[90vh] overflow-y-auto">
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4 modal-backdrop" onClick={handleBackdropClick}>
+      <div className="bg-white rounded-xl w-full max-w-4xl max-h-[90vh] overflow-y-auto modal-content">
         <div className="flex justify-between items-center p-8 border-b">
           <h2 className="text-3xl font-bold text-gray-800">
             {resume ? 'Редактировать резюме' : 'Создать резюме'}

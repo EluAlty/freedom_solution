@@ -1,5 +1,5 @@
 import React from 'react';
-import { Vacancy } from '../app/types/types';
+import { Vacancy } from '../app/types/vacancy';
 import { Badge } from "@/components/badge"
 import { Button } from "@/components/button"
 import { Card, CardContent, CardFooter } from "@/components/card"
@@ -15,10 +15,16 @@ import {
 
 interface VacancyCardProps {
   vacancy: Vacancy;
-  onEdit: (vacancy: Vacancy) => void;
+  onEdit?: (vacancy: Vacancy) => void;
+  isArchived?: boolean;
 }
 
-export const VacancyCard: React.FC<VacancyCardProps> = ({ vacancy, onEdit }) => {
+const formatNumber = (value: number): string => {
+
+  return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+};
+
+export const VacancyCard: React.FC<VacancyCardProps> = ({ vacancy, onEdit, isArchived = false }) => {
   const getExperienceText = (exp: string) => {
     switch(exp) {
       case 'no_experience': return 'Без опыта';
@@ -53,14 +59,16 @@ export const VacancyCard: React.FC<VacancyCardProps> = ({ vacancy, onEdit }) => 
       <CardContent className="p-6">
         <div className="flex justify-between items-start mb-6">
           <h3 className="text-2xl font-semibold text-gray-900">{vacancy.title}</h3>
-          <Button 
-            variant="ghost" 
-            size="sm"
-            onClick={() => onEdit(vacancy)}
-            className="text-gray-500 hover:text-gray-700"
-          >
-            <Settings2 className="w-5 h-5" />
-          </Button>
+          {!isArchived && onEdit && (
+            <Button 
+              variant="ghost" 
+              size="sm"
+              onClick={() => onEdit(vacancy)}
+              className="text-gray-500 hover:text-gray-700"
+            >
+              <Settings2 className="w-5 h-5" />
+            </Button>
+          )}
         </div>
         <div className="flex flex-wrap gap-2 mb-6">
           <Badge variant="secondary" className="px-3 py-1 text-sm font-medium">
@@ -69,11 +77,11 @@ export const VacancyCard: React.FC<VacancyCardProps> = ({ vacancy, onEdit }) => 
           </Badge>
           <Badge variant="secondary" className="px-3 py-1 text-sm font-medium">
             <Banknote className="w-4 h-4 mr-2" />
-            {vacancy.salaryFrom} - {vacancy.salaryTo} {vacancy.currency}
+            {formatNumber(vacancy.salaryFrom)} - {formatNumber(vacancy.salaryTo)} {vacancy.currency}
           </Badge>
           <Badge variant="secondary" className="px-3 py-1 text-sm font-medium">
             <MapPin className="w-4 h-4 mr-2" />
-            {getWorkFormatText(vacancy.workFormat)}
+            {vacancy.area} • {getWorkFormatText(vacancy.workFormat)}
           </Badge>
           <Badge variant="secondary" className="px-3 py-1 text-sm font-medium">
             <GraduationCap className="w-4 h-4 mr-2" />
@@ -87,21 +95,30 @@ export const VacancyCard: React.FC<VacancyCardProps> = ({ vacancy, onEdit }) => 
             <PlaneTakeoff className="w-4 h-4 mr-2" />
             {vacancy.relocation ? 'Готов к релокации' : 'Без релокации'}
           </Badge>
+    
         </div>
       </CardContent>
       <CardFooter className="px-6 pb-6 pt-0 flex gap-4">
-        <Button 
-          variant="outline"
-          className="flex-1 h-12 text-base font-medium border-2 border-gray-300 hover:bg-gray-50"
-        >
-          Поиск по headhunter.kz
-        </Button>
-        <Button 
-          variant="outline"
-          className="flex-1 h-12 text-base font-medium border-2 border-gray-300 hover:bg-gray-50"
-        >
-          Поиск по БД
-        </Button>
+        {!isArchived ? (
+          <>
+            <Button 
+              variant="outline"
+              className="flex-1 h-12 text-base font-medium border-2 border-gray-300 hover:bg-gray-50"
+            >
+              Поиск по headhunter.kz
+            </Button>
+            <Button 
+              variant="outline"
+              className="flex-1 h-12 text-base font-medium border-2 border-gray-300 hover:bg-gray-50"
+            >
+              Поиск по БД
+            </Button>
+          </>
+        ) : (
+          <div className="w-full text-center text-sm text-gray-500">
+            Вакансия в архиве
+          </div>
+        )}
       </CardFooter>
     </Card>
   );

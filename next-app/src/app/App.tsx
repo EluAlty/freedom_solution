@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Navbar } from '../components/Navbar';
 import { VacancyList } from '../components/VacancyList';
 import { VacancyModal } from '../components/VacancyModal';
-import { Vacancy } from './types/types';
+import { Vacancy } from './types/vacancy';
 import './App.css';
 
 export default function App() {
