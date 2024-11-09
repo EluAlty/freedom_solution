@@ -21,7 +21,7 @@ async def get_vacancy(
     return VacancyService.get_vacancy(id, db)
 
 @router.delete('/{id}', tags=["vacancy"])
-async def delete(
+async def delete_vacancy(
     id: int = None,
     db: Session = Depends(get_db)
 ):
@@ -31,5 +31,6 @@ async def delete(
 async def get_vacancy_list(db: Session = Depends(get_db)):
     vacancies = VacancyService.get_vacancy_list(db)
     vacancy_list = [VacancyDTO.VacancyResponse.from_orm(vacancy) for vacancy in vacancies]
+    
     return VacancyDTO.VacancyList(items=vacancy_list)
 

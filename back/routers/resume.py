@@ -1,6 +1,13 @@
-from fastapi import APIRouter, File, UploadFile
+from fastapi import APIRouter, File, UploadFile, HTTPException, Query, Depends
+from fastapi.responses import StreamingResponse
 from services import resume as ResumeService
+from dto.resume import DownloadResumeRequest
+from dto.resume_db import ResumeDbResponse, ResumeDbList, ResumeDbListResponse
+from sqlalchemy.orm import Session
+from database import get_db
+
 import os
+import io
 
 router = APIRouter()
 
@@ -38,18 +45,13 @@ async def get_resume_full(
 ):
     return ResumeService.get_resume_by_id(resume_id)
 
+@router.post('/download', tags=["resume"])
+async def download_resume(request: DownloadResumeRequest):
+    pdf_content = ResumeService.download_resume_pdf(request.resume_url)
 
-UPLOAD_DIRECTORY = os.path.join(os.path.dirname(__file__), "..", "resumes")
-
-@router.put('/{upload}', tags = ["resume"])
-async def upload_resume(file: UploadFile):
-    if not os.path.exists(UPLOAD_DIRECTORY):
-        os.makedirs(UPLOAD_DIRECTORY)
-
-    file_path = os.path.join(UPLOAD_DIRECTORY, file.filename)
-
-    with open(file_path, "wb") as f:
-        content = await file.read()
-        f.write(content)      
-
-    return {"filename": file.filename}
+    if pdf_content:
+        return StreamingResponse(io.BytesIO(pdf_content), media_type="application/pdf", headers={
+            "Content-Disposition": f"attachment; filename={request.resume_id}.pdf"
+        })
+    else:
+        raise HTTPException(status_code=404, detail="Resume not found or could not be downloaded")
