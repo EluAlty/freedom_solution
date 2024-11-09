@@ -1,0 +1,79 @@
+{
+  "vacancies": [
+    {
+      "id": 1,
+      "title": "Data Scientist",
+      "experience": "3-5",
+      "salaryFrom": 500000,
+      "salaryTo": 800000,
+      "currency": "KZT",
+      "workFormat": "hybrid",
+      "education": "master",
+      "ageFrom": "25",
+      "ageTo": "50",
+      "relocation": true,
+      "area": "Almaty",
+      "description": "Требуется опытный Data Scientist с навыками работы в Python, знанием машинного обучения, анализа данных и библиотек, таких как Pandas, Scikit-Learn, TensorFlow."
+    },
+    {
+      "id": 2,
+      "title": "Android Developer",
+      "experience": "1-3",
+      "salaryFrom": 300000,
+      "salaryTo": 450000,
+      "currency": "KZT",
+      "workFormat": "office",
+      "education": "bachelor",
+      "ageFrom": "20",
+      "ageTo": "40",
+      "relocation": false,
+      "area": "Astana",
+      "description": "Ищем Android Developer с опытом работы с Kotlin и Android SDK, желателен опыт работы с REST API и базами данных."
+    },
+    {
+      "id": 3,
+      "title": "DevOps Engineer",
+      "experience": "5+",
+      "salaryFrom": 600000,
+      "salaryTo": 1000000,
+      "currency": "KZT",
+      "workFormat": "remote",
+      "education": "higher",
+      "ageFrom": "30",
+      "ageTo": "55",
+      "relocation": false,
+      "area": "Astana",
+      "description": "Требуется DevOps инженер с отличным знанием Kubernetes, Docker, а также инструментов CI/CD, таких как Jenkins и GitLab CI. Обязателен опыт работы в облачных средах."
+    },
+    {
+      "id": 4,
+      "title": "Business Analyst",
+      "experience": "1-3",
+      "salaryFrom": 250000,
+      "salaryTo": 400000,
+      "currency": "KZT",
+      "workFormat": "office",
+      "education": "higher",
+      "ageFrom": "23",
+      "ageTo": "40",
+      "relocation": false,
+      "area": "Almaty",
+      "description": "В компанию требуется бизнес-аналитик с опытом работы в Agile-проектах, анализом требований и созданием спецификаций. Навыки работы с BPMN, UML будут преимуществом."
+    },
+    {
+      "id": 5,
+      "title": "Machine Learning Engineer",
+      "experience": "5+",
+      "salaryFrom": 700000,
+      "salaryTo": 1200000,
+      "currency": "KZT",
+      "workFormat": "hybrid",
+      "education": "phd",
+      "ageFrom": "28",
+      "ageTo": "60",
+      "relocation": true,
+      "area": "Almaty",
+      "description": "Требуется ML инженер с глубоким знанием Python, TensorFlow, PyTorch, а также опытом работы с большими данными и построением ML моделей для решения бизнес-задач."
+    }
+  ]
+}
