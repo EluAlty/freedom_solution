@@ -34,6 +34,7 @@
 
 import requests
 from dto import resume
+from fastapi import UploadFile
 import os
 
 access_token = "secret"
@@ -54,7 +55,8 @@ def get_resumes(
         schedule: str = None,
         salary_from: int = None,
         salary_to: int = None,
-        education_level: str = None
+        education_level: str = None,
+        currency: str = None
 ) -> "resume.ResumeResponse":
     params = {
         "text": text,
@@ -81,6 +83,8 @@ def get_resumes(
         params["salary_to"] = salary_to
     if education_level is not None:
         params["education_level"] = education_level
+    if currency is not None:
+        params["currency"] = currency    
 
     response = requests.get(search_url, headers=headers, params=params)
 
