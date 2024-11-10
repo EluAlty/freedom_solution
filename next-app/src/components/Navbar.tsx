@@ -15,7 +15,6 @@ export const Navbar: React.FC = () => {
           <div className={`absolute top-16 left-0 right-0 bg-white md:relative md:top-0 md:flex space-y-4 md:space-y-0 md:space-x-6 p-4 md:p-0 shadow-lg md:shadow-none transition-all duration-300 ${isMenuOpen ? 'block' : 'hidden'} md:block`}>
             <NavLink href="/">Главная</NavLink>
             <NavLink href="/database">База данных</NavLink>
-            <NavLink href="/archive">Архив вакансии</NavLink>
           </div>
 
           <button 

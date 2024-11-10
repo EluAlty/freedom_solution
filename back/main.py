@@ -3,13 +3,9 @@ from fastapi import FastAPI
 from routers import resume as ResumeRouter, vacancy as VacancyRouter, resume_storage as ResumeStorageRouter
 from database import SessionLocal, engine, Base
 import os
-from dotenv import load_dotenv
 from fastapi.middleware.cors import CORSMiddleware
 
 Base.metadata.create_all(bind=engine)
-
-dotenv_path=os.path.join(os.path.dirname(__file__), '.env')
-load_dotenv(dotenv_path)
 
 
 app = FastAPI()

@@ -1,24 +1,17 @@
 'use client'
 
-import React, { createContext, useContext, useState } from 'react'
+import React, { createContext, useContext } from 'react'
 import type { Vacancy } from '../types/vacancy'
 
 interface VacancyContextType {
-  archivedVacancies: Vacancy[]
-  addToArchive: (vacancy: Vacancy) => void
+  // Можно добавить другие методы если нужно
 }
 
 const VacancyContext = createContext<VacancyContextType | undefined>(undefined)
 
 export function VacancyProvider({ children }: { children: React.ReactNode }) {
-  const [archivedVacancies, setArchivedVacancies] = useState<Vacancy[]>([])
-
-  const addToArchive = (vacancy: Vacancy) => {
-    setArchivedVacancies(prev => [...prev, vacancy])
-  }
-
   return (
-    <VacancyContext.Provider value={{ archivedVacancies, addToArchive }}>
+    <VacancyContext.Provider value={{}}>
       {children}
     </VacancyContext.Provider>
   )

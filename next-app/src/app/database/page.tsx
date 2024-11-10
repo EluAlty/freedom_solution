@@ -1,201 +1,268 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { Navbar } from '@/components/Navbar'
 import { Button } from '@/components/button'
-import { Search, FileUp, Download} from 'lucide-react'
-import type { Resume } from '../types/resume'
+import {FileUp, Download, Trash2 } from 'lucide-react'
+import { resumeStorageApi } from '@/services/api'
+import { toast } from 'sonner'
+import { LoadingSpinner } from '@/components/LoadingSpinner'
+import type { ResumeItem} from '../types/resume_storage'
+import { resumeApi } from '@/services/api'
+import axios from 'axios'
+import { Vacancy } from '../types/vacancy'
+import { vacancyApi } from '@/services/api'
 
-interface ResumeStats {
-  totalResumes: number;
-  byPosition: {
-    [key: string]: number;
-  }
-}
 
 export default function DatabasePage() {
-  const [searchQuery, setSearchQuery] = useState('')
-  const [resumeStats] = useState<ResumeStats>({
-    totalResumes: 1234,
-    byPosition: {
-      'Frontend Developer': 45,
-      'Backend Developer': 38,
-      'Full Stack Developer': 29,
-      'UI/UX Designer': 22,
-      'Project Manager': 15
-    }
-  })
+  const [isLoading, setIsLoading] = useState(true)
+  const [resumes, setResumes] = useState<ResumeItem[]>([])
+  const [totalResumes, setTotalResumes] = useState(0)
+  const [vacancies, setVacancies] = useState<Vacancy[]>([]);
+  const [selectedVacancy, setSelectedVacancy] = useState<number | null>(null);
 
-  const handleFileUpload = () => {
-    // Здесь будет логика загрузки PDF файлов
-    console.log('File upload logic here')
+  const loadData = useCallback(async () => {
+    try {
+      setIsLoading(true)
+      const totalResponse = await resumeStorageApi.getAll();
+      setTotalResumes(totalResponse.data.items.length);
+      
+      if (selectedVacancy) {
+        const vacancy = vacancies.find(v => v.id === selectedVacancy);
+        if (!vacancy) {
+          toast.error('Вакансия не найдена');
+          return;
+        }
+        const response = await resumeStorageApi.getMatching(String(selectedVacancy));
+        setResumes(response.data.items);
+      } else {
+        setResumes(totalResponse.data.items);
+      }
+    } catch (error) {
+      console.error('Ошибка при загрузке данных:', error);
+      toast.error('Ошибка при загрузке данных');
+    } finally {
+      setIsLoading(false)
+    }
+  }, [selectedVacancy, vacancies]);
+
+  useEffect(() => {
+    loadData()
+  }, [loadData])
+
+  useEffect(() => {
+    const loadVacancies = async () => {
+      try {
+        const response = await vacancyApi.getAll();
+        setVacancies(response.data.items);
+      } catch (error) {
+        console.error('Ошибка при загрузке вакансий:', error);
+        toast.error('Ошибка при загрузке вакансий');
+      }
+    };
+    
+    loadVacancies();
+  }, []);
+
+  useEffect(() => {
+    loadData();
+  }, [loadData]);
+
+  const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    try {
+      if (!event.target.files?.length) return
+      
+      const formData = new FormData()
+      formData.append('file', event.target.files[0])
+      
+      const response = await resumeStorageApi.uploadPdf(formData)
+      
+      if (response.data) {
+        toast.success('Резюме успешно загружено')
+        const totalResponse = await resumeStorageApi.getAll();
+        setTotalResumes(totalResponse.data.items.length);
+        
+        if (!selectedVacancy) {
+          setResumes(totalResponse.data.items);
+        }
+      }
+    } catch (error) {
+      console.error('Ошибка при загрузке:', error)
+      toast.error('Ошибка при загрузке файла')
+    }
   }
 
-  // Временные данные для демонстрации
-  const resumes: Resume[] = [
-    {
-      id: 1,
-      fullName: 'Иван Иванов',
-      name: 'Иван',
-      position: 'Frontend Developer',
-      age: 25,
-      birthDate: '1999-01-01',
-      experience: '3-5',
-      education: 'bachelor',
-      skills: ['React', 'TypeScript', 'JavaScript'],
-      desiredSalary: 150000,
-      currency: 'KZT',
-      workFormat: 'office',
-      relocation: false,
-      location: 'Алматы',
-      contacts: {
-        phone: '+7 777 123 45 67',
-        email: 'ivan@example.com'
-      }
-    },
-    {
-      id: 2,
-      fullName: 'Петр Петров',
-      name: 'Петр',
-      position: 'Backend Developer',
-      age: 28,
-      birthDate: '1996-05-15',
-      experience: '5+',
-      education: 'master',
-      skills: ['Python', 'Django', 'PostgreSQL'],
-      desiredSalary: 200000,
-      currency: 'KZT',
-      workFormat: 'remote',
-      relocation: true,
-      location: 'Астана',
-      contacts: {
-        phone: '+7 777 987 65 43',
-        email: 'petr@example.com'
-      }
+
+
+  const handleDeleteResume = async (resume: ResumeItem) => {
+    try {
+      await resumeStorageApi.delete(Number(resume.id));
+      setResumes(resumes.filter(r => r.id !== resume.id));
+      setTotalResumes(prev => prev - 1);
+      toast.success('Резюме удалено');
+    } catch (error) {
+      console.error('Ошибка при удалении:', error);
+      toast.error('Ошибка при удалении резюме');
     }
-  ]
+  };
 
-  const getExperienceText = (experience: string): string => {
-    const experienceMap: { [key: string]: string } = {
-      'no_experience': 'Без опыта',
-      '1-3': '1-3 года',
-      '3-5': '3-5 лет',
-      '5+': 'Более 5 лет'
-    }
-    return experienceMap[experience] || experience
-  }
-
-  const [showStats, setShowStats] = useState(false)
-
-  // Функция фильтрации резюме
-  const filteredResumes = resumes.filter(resume => {
-    const searchLower = searchQuery.toLowerCase()
-    return (
-      resume.fullName.toLowerCase().includes(searchLower) ||
-      resume.position.toLowerCase().includes(searchLower) ||
-      resume.location.toLowerCase().includes(searchLower)
-    )
-  })
-
-  // Группировка отфильтрованных резюме по позициям
-  const groupedResumes = Object.entries(resumeStats.byPosition).reduce((acc, [position]) => {
-    const positionResumes = filteredResumes.filter(resume => resume.position === position)
-    if (positionResumes.length > 0) {
-      acc[position] = positionResumes
-    }
-    return acc
-  }, {} as { [key: string]: Resume[] })
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
       <Navbar />
       <div className="container mx-auto px-4 py-8">
-        <div className="bg-white rounded-xl shadow-lg p-8 mb-16">
-          <div 
-            onClick={() => setShowStats(!showStats)}
-            className="bg-blue-100 rounded-lg p-4 transition-transform duration-300 hover:scale-[1.02] cursor-pointer"
-          >
-            <p className="text-lg font-semibold text-blue-800">Резюме в базе данных</p>
-            <div className="flex items-center justify-between">
-              <p className="text-3xl font-bold text-blue-600">{resumeStats.totalResumes}</p>
-            </div>
-          </div>
-          
-          <div 
-            className={`transition-all duration-300 ease-in-out overflow-hidden ${
-              showStats ? 'max-h-[500px] opacity-100 mt-6' : 'max-h-0 opacity-0'
-            }`}
-          >
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              {Object.entries(resumeStats.byPosition).map(([position, count]) => (
-                <div key={position} className="bg-gray-50 rounded-lg p-4">
-                  <p className="text-sm font-medium text-gray-600">{position}</p>
-                  <p className="text-xl font-bold text-gray-900">{count}</p>
+        {isLoading ? (
+          <LoadingSpinner />
+        ) : (
+          <>
+            <div className="bg-white rounded-xl shadow-lg p-8 mb-16">
+              <h2 className="text-2xl font-bold text-gray-800 mb-4">Обзор</h2>
+              <div className="grid grid-cols-1 gap-4">
+                <div className="bg-blue-100 rounded-lg p-4">
+                  <p className="text-lg font-semibold text-blue-800">Всего резюме в базе данных</p>
+                  <p className="text-3xl font-bold text-blue-600">
+                    {totalResumes}
+                  </p>
                 </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        <div className="bg-white rounded-xl shadow-lg p-8">
-          <div className="mb-6 relative">
-            <div className="relative">
-              <input
-                type="text"
-                placeholder="Поиск по резюме..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full px-4 py-3 pl-12 text-lg rounded-lg border-2 border-gray-300 focus:border-blue-500 focus:ring focus:ring-blue-200 transition-all"
-              />
-              <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-            </div>
-          </div>
-          
-          <div className="space-y-8">
-            {Object.entries(resumeStats.byPosition).map(([position]) => (
-              <div key={position}>
-                <h3 className="text-xl font-semibold text-gray-800 mb-4">{position}</h3>
-                <div className="space-y-4">
-                  {groupedResumes[position]?.map(resume => (
-                    <div key={resume.id} className="border rounded-lg p-4 flex justify-between items-center hover:border-blue-500 transition-all">
-                      <div>
-                        <h3 className="text-lg font-semibold">{resume.fullName}</h3>
-                        <div className="text-sm text-gray-600 mt-1">
-                          <span>{resume.position}</span> • 
-                          <span className="ml-2">{resume.age} лет</span> • 
-                          <span className="ml-2">{getExperienceText(resume.experience)}</span> •
-                          <span className="ml-2">{resume.location}</span>
+                
+                <div className="mt-6">
+                  <div className="flex justify-between items-center mb-4">
+                    <h3 className="text-lg font-semibold text-gray-800">Вакансии</h3>
+                    <Button
+                      variant="outline"
+                      onClick={() => setSelectedVacancy(null)}
+                      className={`${!selectedVacancy ? 'bg-blue-500 text-white' : ''}`}
+                    >
+                      Показать все резюме
+                    </Button>
+                  </div>
+                  <div className="space-y-3">
+                    {vacancies.map(vacancy => (
+                      <div
+                        key={vacancy.id}
+                        onClick={() => setSelectedVacancy(Number(vacancy.id))}
+                        className={`p-4 rounded-lg cursor-pointer transition-all ${
+                          selectedVacancy === Number(vacancy.id) 
+                            ? 'bg-blue-500 text-white' 
+                            : 'bg-gray-100 hover:bg-gray-200'
+                        }`}
+                      >
+                        <div className="flex justify-between items-center">
+                          <h4 className="font-medium">{vacancy.title}</h4>
+                          <span className="text-sm">
+                            {selectedVacancy === Number(vacancy.id) ? resumes.length : '0'}
+                            {' подходящих резюме'}
+                          </span>
                         </div>
                       </div>
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        className="flex items-center gap-2"
-                        onClick={() => {/* Логика скачивания */}}
-                      >
-                        <Download className="w-4 h-4" />
-                        Скачать PDF
-                      </Button>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
+            </div>
 
-        <div className="fixed bottom-8 right-8">
-          <label className="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-full transition duration-300 ease-in-out cursor-pointer flex items-center gap-2 shadow-lg hover:shadow-xl">
-            <FileUp className="w-5 h-5" />
-            Загрузить резюме
-            <input
-              type="file"
-              accept=".pdf"
-              onChange={handleFileUpload}
-              className="hidden"
-            />
-          </label>
-        </div>
+            <div className="bg-white rounded-xl shadow-lg p-8">
+              <div className="space-y-4">
+                {resumes.map(resume => (
+                  <div key={resume.id} className="border rounded-lg p-4 hover:border-blue-500 transition-all">
+                    <div className="flex justify-between items-start">
+                      <div>
+                        <h3 className="text-lg font-semibold">{resume.title}</h3>
+                        <div className="text-sm text-gray-600 mt-1">
+                          <span>{resume.area}</span> • 
+                          <span className="ml-2">{resume.experience}</span> •
+                          <span className="ml-2">{resume.education}</span>
+                        </div>
+                      </div>
+                      
+                      <div className="flex justify-end gap-2 mt-4">
+                        <Button 
+                          variant="ghost" 
+                          size="sm"
+                          onClick={() => handleDeleteResume(resume)}
+                          className="text-red-500 hover:text-red-700 hover:bg-red-100"
+                        >
+                          <Trash2 className="w-5 h-5" />
+                        </Button>
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="flex items-center gap-2"
+                          onClick={async () => {
+                            try {
+                              console.log('API_URL:', process.env.NEXT_PUBLIC_API_URL);
+                              console.log('Начало скачивания', {
+                                hh_url: resume.hh_url,
+                                file_name: resume.file_name
+                              });
+              
+                              let response;
+                              if (resume.hh_url === "") {
+                                console.log('Отправка запроса на /resume-storage/download');
+                                response = await resumeApi.downloadFromStorage(resume.file_name);
+                              } else {
+                                console.log('Отравка запроса на /resume/download');
+                                response = await resumeApi.downloadFromHh(
+                                  resume.hh_url,
+                                  resume.hh_id
+                                );
+                              }
+              
+                              console.log('Получен ответ:', {
+                                status: response.status,
+                                headers: response.headers,
+                                contentType: response.headers['content-type']
+                              });
+              
+                              const blob = new Blob([response.data], { 
+                                type: response.headers['content-type'] 
+                              });
+                              console.log('Создан blob размером:', blob.size);
+              
+                              const url = window.URL.createObjectURL(blob);
+                              const a = document.createElement('a');
+                              a.href = url;
+                              a.download = resume.hh_url === "" ? resume.file_name : `${resume.hh_id}.pdf`;
+                              document.body.appendChild(a);
+                              a.click();
+                              document.body.removeChild(a);
+                              window.URL.revokeObjectURL(url);
+              
+                              toast.success('айл успешно скачан');
+                            } catch (error) {
+                              console.error('Полная ошибка при скачивании:', error);
+                              if (axios.isAxiosError(error)) {
+                                console.error('Ответ сервера:', error.response?.data);
+                                console.error('Статус ошибки:', error.response?.status);
+                              }
+                              toast.error('Ошибка при скачивании файла');
+                            }
+                          }}
+                        >
+                          <Download className="w-4 h-4" />
+                          Скачать PDF
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="fixed bottom-8 right-8">
+              <label className="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-full transition duration-300 ease-in-out cursor-pointer flex items-center gap-2 shadow-lg hover:shadow-xl">
+                <FileUp className="w-5 h-5" />
+                Загрузить резюме
+                <input
+                  type="file"
+                  accept=".pdf"
+                  onChange={handleFileUpload}
+                  className="hidden"
+                />
+              </label>
+            </div>
+          </>
+        )}
       </div>
     </main>
   )

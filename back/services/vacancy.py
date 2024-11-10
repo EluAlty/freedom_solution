@@ -1,4 +1,4 @@
-from model.vacancy import Vacancy
+from models.vacancy import Vacancy
 from sqlalchemy.orm import Session
 from dto import vacancy
 

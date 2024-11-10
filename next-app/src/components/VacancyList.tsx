@@ -4,13 +4,23 @@ import { VacancyCard } from './VacancyCard';
 
 interface VacancyListProps {
   vacancies: Vacancy[];
-  onEdit: (vacancy: Vacancy) => void;
+  onUpdateStats?: () => void;
+  onDelete: (vacancy: Vacancy) => void;
 }
 
-export const VacancyList: React.FC<VacancyListProps> = ({ vacancies, onEdit }) => (
+export const VacancyList: React.FC<VacancyListProps> = ({ 
+  vacancies, 
+  onUpdateStats,
+  onDelete 
+}) => (
   <div className="space-y-4">
     {vacancies.map(vacancy => (
-      <VacancyCard key={vacancy.id} vacancy={vacancy} onEdit={onEdit} />
+      <VacancyCard 
+        key={vacancy.id} 
+        vacancy={vacancy} 
+        onUpdateStats={onUpdateStats}
+        onDelete={onDelete}
+      />
     ))}
   </div>
 );

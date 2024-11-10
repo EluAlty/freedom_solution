@@ -1,41 +1,7 @@
-# import requests
-# from urllib.parse import urlparse, parse_qs
-# import json
-
-# access_token = ""
-
-# headers = {
-#     "Authorization": f"Bearer {access_token}"
-# }
-
-# search_url = "https://api.hh.ru/resumes"
-# params = {
-#     "text": "Fronted разработчик React",  # Например, ищем резюме по ключевым словам
-#     "area": "40",  # Регион (Казахстан), см. документацию для других регионов
-#     "per_page": 1,  # Количество резюме на странице
-#     "page": 1,       # Номер страницы
-#     "text.logic": "all",
-#     "text.field": "title"
-# }
-
-# # Выполнение запроса к API для поиска резюме
-# response = requests.get(search_url, headers=headers, params=params)
-
-# if response.status_code == 200:
-#     resumes = response.json()
-#     for resume in resumes.get("items", []):
-#         # Форматированный вывод каждого резюме
-#         print("Полная информация о резюме:")
-#         print(json.dumps(resume, indent=4, ensure_ascii=False))  # Красиво форматирует JSON с отступами
-#         print("\n" + "="*50 + "\n")  # Разделитель для удобства чтения
-# else:
-#     print("Ошибка при получении списка резюме:", response.text)
-
-
 import requests
 from dto import resume, resume_db
-from model import resume_db as ResumeModel
-import os
+from models import resume_db as ResumeModel
+
 
 access_token = "USERP5E3SRULNMM1IE8UPSMA9U6A7698JE2FL7EVP47BK5VEL0DA351VJ745JR0J"
 
