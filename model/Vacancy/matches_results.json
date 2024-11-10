@@ -1,0 +1,291 @@
+[
+  {
+    "vacancy_id": 1,
+    "vacancy_title": "Data Scientist",
+    "matches": [
+      {
+        "resume": {
+          "id": 7,
+          "title": "Milena Tyutneva",
+          "experience": "no_experience",
+          "salaryFrom": 150000,
+          "salaryTo": 300000,
+          "currency": "KZT",
+          "workFormat": "office",
+          "education": "higher",
+          "ageFrom": "18",
+          "ageTo": "60",
+          "relocation": false,
+          "area": "Almaty",
+          "description": "Milena Tyutneva\nSoftware Engineer\n/envel⌢pemilena030703@gmail.com /linkedinfincher-milena /githubmttesla ♂¶obile+77086143488 ♂¶ap-¶arkerAlmaty, Kazakhstan\nEducation\nUniversity of Economics and Human Sciences Warsaw, Poland\nData Science 2023-present\n•Selected Coursework: Advanced Python | ML concepts | Database Architectures | Java in OOP\nTechnical School im. Z.Chmielewskiego in Nałęczow Lublin, Poland\nComputer Science 2018-2022\n•Selected Coursework: Performance, Data Structures and Algorithms | C++ | JavaScript | Networking\nExperience\nnFactorial School Almaty, Kazakhstan\nBack-end Engineer Mar 2024 - Oct 2024\n•Worked with Python, FastAPI, Django, Docker, SQLite, Git\nRoboto Global Warsaw, Poland\nFront-end Developer Feb 2023 - Mar 2024\n•Designed forms, authorisation, registration using HTML, SCSS, JavaScript, PHP\n•Writing CRUD queries using REST Api .\n•Engaged in supporting the current architecture.\nCareer break Lublin, Poland\nDiploma Year | Foundation Dec 2021 - June 2022\n•Successfully defended Diploma web-project and passed final examinations\nAES meg.kz Almaty, Kazakhstan\nSoftware Engineer | Software Development team Jul 2021 - Nov 2021\n•Developed software using Python, MySQL, Git .\nPersonal or Side Projects\nInternet stores | MonMou, Beautis Jan 2021 - Mar 2021\n•Developed front-end using JavaScript, PHP, HTML, SCSS , improving cross-browser compatibility and\nresponsiveness.\n•Optimized workflow with GulpandWebpack for building ES6 modules and automating tasks.\n•Configured email sending functionality using PHPmodules.\nWeb store | Apip Jul 2024 - Sep 2024\n•Built a web store backend using Python, FastAPI , and SQLite, ensuring efficient data management and seamless API\nperformance.\n•Implemented database migrations with Alembic to maintain schema consistency across development stages. Utilized\nPydantic for data validation and SQLAlchemy for robust database interaction, optimizing data handling and queries.\nClothing Store - Fullstack Project Sep 2024 - Current\n•Applied CSS, Next.js, MongoDB, TypeScript , adapted migrations using Alembic andOAUth\n•Developed full-stack functionality using Next.js, TypeScript andMongoDB to create a dynamic and responsive\ne-commerce platform. Integrated OAuth for secure user authentication and authorization, enhancing the security of the\napplication.\nTechnical Skills\nLanguages : English, Russian, Polish\nDeveloper Tools : Python, JavaScript, Git/GitHub, SQL, Docker\nTechnologies/Frameworks : Django, FastAPI, React"
+        },
+        "total_score": 0.9244609713554381,
+        "bert_similarity": 0.8920871019363403,
+        "skills_match": 1.0
+      },
+      {
+        "resume": {
+          "id": 3,
+          "title": "FAIZOLLA AMANBEK",
+          "experience": "no_experience",
+          "salaryFrom": 150000,
+          "salaryTo": 300000,
+          "currency": "KZT",
+          "workFormat": "office",
+          "education": "higher",
+          "ageFrom": "18",
+          "ageTo": "60",
+          "relocation": false,
+          "area": "Almaty",
+          "description": "FAIZOLLA AMANBEK\n+77073267850 •rahugg07@gmail.com •linkedin.com/in/amanbek-faizolla •github.com/Rahugg\nОБРАЗОВАНИЕ\nКазахстанско-Британский Технический Университет Выпуск 2021 - 2025\nB.S. Вычислительная Техника и Программное Обеспечение 3.7/4.00 GPA\nДисциплины: Алгоритмы и Структуры Данных, ООП, Разработка высоко нагруженных систем, Дискретная Математика,\nВысшая Математика, Линейная Алгебра\nТЕХНИЧЕСКИЕ НАВЫКИ\nЯзыки Программирования: JavaScript, Golang, Python, C++, Java\nФреймворки и Базы Данных: PostgreSQL, Redis, React, Angular, Gin, Django\nТехнологии: Git, Linux, Docker, gRPC, Swagger, Kafka, Prometheus, Grafana, Rest API\nОПЫТ РАБОТЫ\nBackend Developer at Feedback, Almaty, KZ Авг 2023 – Настоящее время\n•Самостоятельно изучил Golang и реализовал сложные функции, преодолевая проблемы интеграции многофункци-\nональных систем.\n•Разработал микросервис для оценки событий в реальном времени с помощью QR-кода, интегрировал веб-\nсокеты , используя паттерны конкурентного программирования на языке Golang , что значительно увеличило ско-\nрость и отзывчивость микросервиса в 3 раза .\n•Подключил Redis для кэширования данных , существенно ускорив время отклика приложения , улучшив общую\nпроизводительность.\n•Сократил количество ошибок в коде за счет рефакторинга существующей кодовой базы, добавил документацию\nдля сервисов с помощью Swagger.\nFullstack Developer at Ligeia.AI, Almaty, KZ Янв 2023 – Июн 2023\n•Разработал сайт в команде из 5 человек для конкретного предприятия с использованием Django ,PostgreSQL и\nReact добившись активности в 1000+ пользователей.\n•Создал виджет областной диаграммы в реальном времени на React, улучшив визуализацию и понимание данных\nдля команды.\n•Автоматизировал извлечение данных, увеличив скорость на 20% с помощью Python и pandas для конвертации в\nCSV.\nОБУЧЕНИЕ\nNfactorial Incubator 2022, Almaty, KZ Июн 2022 – Авг 2022\n•Среди4 000 претендентов, получил место среди 150 отобранных участников 10-недельного международного\nBootcamp\n•Решил алгоритмические задачи, развил Soft skills ,создал full-stack приложение со стеком MERN\n•Исправил ошибки в приложении, используя полученные знания о Linux, Git и клиент-серверной архитектуры , а\nтакже создал full-stack на базе React для поиска аниме-цитат.\nПРОЕКТЫ\nCRM-system Сен 2023 - Дек 2023\nСсылка на проект\n•Спроектировал и реализовал с нуля микросервисную архитектуру для приложения, используя широкий стек\nтехнологий: Golang, PostgreSQL, gRPC, Docker, Grafana, Prometheus, Kafka и Redis\n•Внедрил Rest API для общения с клиентом и gRPC для межсервисной коммуникации, обеспечивая эффективное\nвзаимодействие компонентов системы.\n•Интегрировал Docker и Docker-compose для контейнеризации приложения , что повысило скорость запуска в 5\nраз, оптимизируя процесс развертывания.\n•Подключил метрики для отслеживания нагрузки и добавил профилирование и управление событиями на основе\nKafka , обеспечивая надежность и производительность системы."
+        },
+        "total_score": 0.6608965277671814,
+        "bert_similarity": 0.5155664682388306,
+        "skills_match": 1.0
+      },
+      {
+        "resume": {
+          "id": 2,
+          "title": "Alikhan Mazhiken",
+          "experience": "no_experience",
+          "salaryFrom": 150000,
+          "salaryTo": 300000,
+          "currency": "KZT",
+          "workFormat": "office",
+          "education": "higher",
+          "ageFrom": "18",
+          "ageTo": "60",
+          "relocation": false,
+          "area": "Almaty",
+          "description": "Alikhan Mazhiken\n+7 (708) 352-90-26 |mazhiken.alikhan@gmail.com |linkedin.com/in/mazhiken |github.com/mazhikenalikhan\nEducation\nKazakh-British Technical University Almaty, Kazakhstan\nMaster of Software Engineering Sep. 2023 – June 2025\nAstana IT University Astana, Kazakhstan\nBachelor of Computer Science Sep. 2019 – June 2022\nExperience\nJava Developer Sep. 2022 – Present\nJMart LLP Almaty, Kazakhstan\n•Developed a REST API using Spring Boot, MySQL to store data and RabbitMQ to communicate between\nmicroservices\n•Documented API endpoints using Swagger, facilitating easier integration and maintenance for developers\n•Refactored code, fixed bugs to improve overall code quality and readability\n•Created integration tests by using JUnit, Testcontainers, Wiremock, Spring Cloud Contract and Mockito\n•Designed API tests with JUnit, REST-assured, Assert that cover all company’s services\n•Analyzed API tests’ coverage of services by using Swagger-coverage, and demonstrated results by Grafana and\nAllure report\n•Informed QA engineers about errors in tests via telegram notifications by integrating Telegram API and bot\nProjects\ntoqyzkumalak |Python, Telegram API April 2021 – April 2021\n•Developed program to play game called toqyzkumalak in python\n•Created several bots to play against players with different levels of difficulties\n•Designed telegram bot so users can play it anywhere\nMinesweeper |C++ April 2021 – April 2021\n•Created minesweeper playable in cli\nSOLIDBankApp |Spring boot, Java, Maven Git, H2 database May 2022 – May 2022\n•Developed a project for the bank’s backend using SOLID principles\nTechnical Skills\nLanguages : Java, C/C++, Python, SQL (Postgres, MySQL)\nFrameworks : JUnit, Spring, Hibernate\nDeveloper Tools : Git, Docker, RabbitMQ, Lombok, Swagger, Lens, Postman, DBeaver, Grafana, Swagger\nLibraries : Maven, Swagger-coverage, Testcontainers, REST-assured Problem solving : have more than 450 solved\nproblems on Leetcode , had at max 1594 rating on Codeforces\nAchievements\nICPC Participated in 3 Northern Eurasia Finals. Ranked 7th out of 65 teams in Kazakhstan’s regional ICPC contest.\nMeta Hacker Cup Participated in 2 round and ranked 1126th out of 5000 participants.\nKBTU Open Ranked 16 in the competitive team programming contest.\nYandex Cup Participated in the final part of the international Yandex Cup contest.\nOther Achieved 3 place in Astana IT University’s contest for best programmers."
+        },
+        "total_score": 0.59730004966259,
+        "bert_similarity": 0.4247143566608429,
+        "skills_match": 1.0
+      },
+      {
+        "resume": {
+          "id": 6,
+          "title": "Summary",
+          "experience": "no_experience",
+          "salaryFrom": 150000,
+          "salaryTo": 300000,
+          "currency": "KZT",
+          "workFormat": "office",
+          "education": "higher",
+          "ageFrom": "18",
+          "ageTo": "60",
+          "relocation": false,
+          "area": "Almaty",
+          "description": "Summary\nFrontend developer with a strong background in modernizing and optimizing web projects. Specializes in Vue.js, React and\nTypeScript. Expertise in reducing build sizes, enhancing performance, and seamlessly adopting technologies like Vite.\nProven track record of driving significant improvements in both startup and enterprise environments.\nExperience\nChoco Holding | Almaty, Almaty\nFrontend Developer | 09/2023 - Present\nAccelerated project builds and improved development by migrating 3 projects from Webpack to Vite.\nBuilt and published 6 iOS and Android apps using React Native, establishing a contract between native and WebView.\nCreated a JavaScript barcode scanning library (choco-barcode-scanner) available on npm.\nImproved developer experience by creating a bot for Merge Request notifications. Used in 10+ microservices repositories\nand 5+ frontend repositories. Emphasized on reducing time to TTM\nSuccessfully migrated 2 projects from JavaScript to TypeScript. This made the code easier to maintain and scale\nSuccessfully migrated 3 Vue projects to Script Setup. Observed best practices\nOptimized the client application (SPA). Reduced build weight from 5.3MB to 4.16MB, improved code utilization from 45%\nto 67%. Implemented asynchronous page loading. Accelerated page loading in co-op.\nAdditional: Worked with Lottie and Vanilla CSS animations to improve the interface, with Yandex and 2gis maps.\nVue2/3, Typescript, React Native, Vite, Webpack, Vitest, Jest, Docker, Gitlab CI, WebView\nHalyk Bank | Almaty, Almaty\nFrontend Developer | 06/2022 - 09/2022\nDuring my tenure at Halyk Bank's Online Banking Department, I focused on enhancing Developer Experience through auto-\ngenerated documentation and collaboration efforts.\nEnhanced Developer Experience (DX) by implementing auto-generated documentation and crafting comprehensive\ninstallation instructions, fostering smooth collaboration across teams.\nContributed to UI-library enhancements, ensuring consistency and an enhanced user experience.\nSpearheaded technical optimizations including codebase refinement and universal functionality\nimplementation.\nAngular, TypeScript, RxJS, Storybook\nChoco Holding | Almaty, Almaty\nFrontend Developer | 02/2022 - 05/2022\nActively contributed to the development and enhancement of the user interface and merchant interface.\nConducting redesign and refactoring of the menu, improving the user experience and streamlining the application\nworkflow.\nFixing errors and bugs in RahmetBiz functionality related to our service, including editing categories and products, as well\nas ensuring the proper functioning of automatic online order disabling.\nAssisting in the integration with IIKO, enhancing the interaction process between systems.\nParticipating in the redesign process of the homepage and map, including the navigation panel, markers, and header.\nVue2/3, Webpack, Vue test utils, Jest, Docker\nDAR | Almaty, Almaty\nFrontend Developer Internship | 08/2021 - 11/2021\nFirst Frontend Development Summer Internship - DAR Summer Internship\nReact, TypeScript, Redux, Redux-saga, SCSS\nMorrison Code | Almaty, Almaty\nSupport Mentor | 03/2021 - 06/2021Asatulla Dadabaev\n+77079986392 | debixxter@gmail.com | Almaty, AlmatyProvided mentorship for the \"Web Development\" course, covering HTML, CSS, JavaScript, jQuery, and React.js.\nAssisted students with code-related queries and corrections, tracked progress, and delivered weekly supplementary\nlectures.\nReviewed and provided feedback on assignments to reinforce understanding.\nSkills\nJavaScript, Typescript, Python, HTML/CSS, Vue, Nuxt, React, React Native, Astro, Node.js, Vite, Webpack, Vitest, Jest,\nVue Test Utils, CI/CD/, Docker\nEducation\nAlmaty Management University | Almaty, Almaty\nBachelor of Software Engineering, Computer Science | 07/2023\nAward:\nIOKA Fintech Hackathon 2021 Winner\nKazEnergy StudentDigitalFest-2022 Winner\nALMAU Startup Night 2019 Winner(Go Pau Team)\nAlmaty Case Competition Winner(TBS TEAM)"
+        },
+        "total_score": 0.5699071496725082,
+        "bert_similarity": 0.3855816423892975,
+        "skills_match": 1.0
+      }
+    ]
+  },
+  {
+    "vacancy_id": 2,
+    "vacancy_title": "Android Developer",
+    "matches": [
+      {
+        "resume": {
+          "id": 2,
+          "title": "Alikhan Mazhiken",
+          "experience": "no_experience",
+          "salaryFrom": 150000,
+          "salaryTo": 300000,
+          "currency": "KZT",
+          "workFormat": "office",
+          "education": "higher",
+          "ageFrom": "18",
+          "ageTo": "60",
+          "relocation": false,
+          "area": "Almaty",
+          "description": "Alikhan Mazhiken\n+7 (708) 352-90-26 |mazhiken.alikhan@gmail.com |linkedin.com/in/mazhiken |github.com/mazhikenalikhan\nEducation\nKazakh-British Technical University Almaty, Kazakhstan\nMaster of Software Engineering Sep. 2023 – June 2025\nAstana IT University Astana, Kazakhstan\nBachelor of Computer Science Sep. 2019 – June 2022\nExperience\nJava Developer Sep. 2022 – Present\nJMart LLP Almaty, Kazakhstan\n•Developed a REST API using Spring Boot, MySQL to store data and RabbitMQ to communicate between\nmicroservices\n•Documented API endpoints using Swagger, facilitating easier integration and maintenance for developers\n•Refactored code, fixed bugs to improve overall code quality and readability\n•Created integration tests by using JUnit, Testcontainers, Wiremock, Spring Cloud Contract and Mockito\n•Designed API tests with JUnit, REST-assured, Assert that cover all company’s services\n•Analyzed API tests’ coverage of services by using Swagger-coverage, and demonstrated results by Grafana and\nAllure report\n•Informed QA engineers about errors in tests via telegram notifications by integrating Telegram API and bot\nProjects\ntoqyzkumalak |Python, Telegram API April 2021 – April 2021\n•Developed program to play game called toqyzkumalak in python\n•Created several bots to play against players with different levels of difficulties\n•Designed telegram bot so users can play it anywhere\nMinesweeper |C++ April 2021 – April 2021\n•Created minesweeper playable in cli\nSOLIDBankApp |Spring boot, Java, Maven Git, H2 database May 2022 – May 2022\n•Developed a project for the bank’s backend using SOLID principles\nTechnical Skills\nLanguages : Java, C/C++, Python, SQL (Postgres, MySQL)\nFrameworks : JUnit, Spring, Hibernate\nDeveloper Tools : Git, Docker, RabbitMQ, Lombok, Swagger, Lens, Postman, DBeaver, Grafana, Swagger\nLibraries : Maven, Swagger-coverage, Testcontainers, REST-assured Problem solving : have more than 450 solved\nproblems on Leetcode , had at max 1594 rating on Codeforces\nAchievements\nICPC Participated in 3 Northern Eurasia Finals. Ranked 7th out of 65 teams in Kazakhstan’s regional ICPC contest.\nMeta Hacker Cup Participated in 2 round and ranked 1126th out of 5000 participants.\nKBTU Open Ranked 16 in the competitive team programming contest.\nYandex Cup Participated in the final part of the international Yandex Cup contest.\nOther Achieved 3 place in Astana IT University’s contest for best programmers."
+        },
+        "total_score": 0.6242067098617553,
+        "bert_similarity": 0.8917238712310791,
+        "skills_match": 0.0
+      },
+      {
+        "resume": {
+          "id": 4,
+          "title": "2",
+          "experience": "no_experience",
+          "salaryFrom": 150000,
+          "salaryTo": 300000,
+          "currency": "KZT",
+          "workFormat": "office",
+          "education": "higher",
+          "ageFrom": "18",
+          "ageTo": "60",
+          "relocation": false,
+          "area": "Almaty",
+          "description": "2\nMargulan\nAlmabay\nKazakhstan,\nAstana\n|\n+7\n775\n408\n2003\n|\nGithub:\nhttps://github.com/mkalmabai\n|\nmargulanalmabay@outlook.com\n|\nhttps://www.linkedin.com/in/margulan-almabay-3572a9263\nWORK\nEXPERIENCE\nComputer\nScience\nTrainer\n8/2024-Present\n●\n«Aiplus»\nEducational\nCenter\nAstana,Kazakhstan\n-\nDeliver\nengaging\nand\ncomprehensive\nlessons\nin\ncomputer\nscience,\ntailored\nto\nstudents'\nneeds.\n-\nDevelop\nand\nimplement\ncurriculum\nto\nenhance\nstudents’\ncoding\nskills\nand\ntheoretical\nunderstanding.\nAndroid\ndeveloper\n3/2024-5/2024\n●\nАО\n«Национальные\nинформационные\nтехнологии»\nAstana,Kazakhstan\n-\nWorked\non\na\nlarge-scale\nproject\nusing\nDagger\nHilt\nfor\ndependency\ninjection.\n-\nIdentified\nand\nresolved\nover\n10\ncritical\nbugs\nin\nthe\n“eGov\nmobile”\nAndroid\napp,\nensuring\ncompatibility\nacross\nmultiple\nsmartphone\nbrands.\nAndroid\ndeveloper\n9/2023-1/2024\n●\nNeobis\nclub.\nKyrgyzstan,Kazakhstan\n-\nDeveloped\nand\ndelivered\nover\n10\nAndroid\nprojects,\nemploying\nREST\nAPIs,\nMVVM,\nMVP,\nRetrofit,\nOkHttp,\nGlide,\nand\nCoroutines.\n-\nCollaborated\neffectively\nwithin\na\nteam,\nidentifying\nand\naddressing\nnumerous\nendpoint-related\nbugs.\n-\nAccurately\ntranslated\nFigma\nUI\ndesigns\ninto\nAndroid\napp\ninterfaces.\nAndroid\ndeveloper\n3/2023-4/2023\n●\nJunnur\nqurylys.\nAstana,Kazakhstan\n-\nAssisted\nsenior\ndevelopers\nin\nvarious\ntasks,\nutilizing\ntechnologies\nsuch\nas\nView\nBinding,\nNavigation\nComponent,\nSafe\nArgs,\nand\nRetrofit.\n-\nManaged\ncode\nrepositories\nusing\nGitHub,\nfollowing\nbest\npractices\nfor\nversion\ncontrol.\nEDUCATION\nAstana\nIT\nUniversity\nAstana,\nKazakhstan\nBachelor’s\nin\nSoftware\nEngineering\n9/2021-\nPresent\n•\nDiploma\nProject:\nDevelopment\na\nandroid\napplication\nfor\nbook\nexchange\nand\nsale\n•\nBreaking\nNews\n|Kotlin,Xml,Single-Activity\nArc,\nMVVM,\nCoroutines\n•\nPlant\nlive\n|\nKotlin,\nXml,\nApi,FireBase,FireStore,MVVM\n•\nChat\nApp\n|\nKotlin,\nXml,FireBase,Room,\nSKILLS\n●\nOOP\n●\nSOLID\n●\nMVVM,\nMVP\n●\nGit\n●\nKotlin,\nJava\n●\nAndroid\nSDK\n●\nREST\nAPI\n(Retrofit2,\nOkhttp)\n●\nRoom,LiveData,\nViewModel\n●\nPostman\n●\nFirebase,Crashlytics\n●\nPostgreSQL,SQLite\n●\nCoroutines\n●\nDagger\nHilt,\nDependency\nInjection\n●\nNavigation\nComponent,\nSafe\nArgs\n●\nView\nBinding\n●\nSingle-Activity\nArchitecture\n●\nDeeplinks\n●\nFigma,MaterialDesign\nSUMMARYAt\nthe\nage\nof\n20,\nI\nam\ncurrently\na\nstudent\nwith\na\nyear\nof\nexperience\nin\nAndroid\ndevelopment.\nMy\njourney\nbegan\nwith\nfirmware\ncreation\nfor\nAndroid,\nand\nI\nhave\nsince\naccumulated\napproximately\n15\nprojects\non\nGitHub.\nI\nam\neager\nto\napply\nmy\nskills\nand\ngain\npractical\nexperience\nthrough\nan\ninternship.\nI\nfind\njoy\nin\ncollaborative\nwork,\nactively\nparticipating\nin\nprojects,\nand\nconstantly\nseeking\nto\nexpand\nmy\ntechnological\nknowledge."
+        },
+        "total_score": 0.6241055309772491,
+        "bert_similarity": 0.8915793299674988,
+        "skills_match": 0.0
+      },
+      {
+        "resume": {
+          "id": 7,
+          "title": "Milena Tyutneva",
+          "experience": "no_experience",
+          "salaryFrom": 150000,
+          "salaryTo": 300000,
+          "currency": "KZT",
+          "workFormat": "office",
+          "education": "higher",
+          "ageFrom": "18",
+          "ageTo": "60",
+          "relocation": false,
+          "area": "Almaty",
+          "description": "Milena Tyutneva\nSoftware Engineer\n/envel⌢pemilena030703@gmail.com /linkedinfincher-milena /githubmttesla ♂¶obile+77086143488 ♂¶ap-¶arkerAlmaty, Kazakhstan\nEducation\nUniversity of Economics and Human Sciences Warsaw, Poland\nData Science 2023-present\n•Selected Coursework: Advanced Python | ML concepts | Database Architectures | Java in OOP\nTechnical School im. Z.Chmielewskiego in Nałęczow Lublin, Poland\nComputer Science 2018-2022\n•Selected Coursework: Performance, Data Structures and Algorithms | C++ | JavaScript | Networking\nExperience\nnFactorial School Almaty, Kazakhstan\nBack-end Engineer Mar 2024 - Oct 2024\n•Worked with Python, FastAPI, Django, Docker, SQLite, Git\nRoboto Global Warsaw, Poland\nFront-end Developer Feb 2023 - Mar 2024\n•Designed forms, authorisation, registration using HTML, SCSS, JavaScript, PHP\n•Writing CRUD queries using REST Api .\n•Engaged in supporting the current architecture.\nCareer break Lublin, Poland\nDiploma Year | Foundation Dec 2021 - June 2022\n•Successfully defended Diploma web-project and passed final examinations\nAES meg.kz Almaty, Kazakhstan\nSoftware Engineer | Software Development team Jul 2021 - Nov 2021\n•Developed software using Python, MySQL, Git .\nPersonal or Side Projects\nInternet stores | MonMou, Beautis Jan 2021 - Mar 2021\n•Developed front-end using JavaScript, PHP, HTML, SCSS , improving cross-browser compatibility and\nresponsiveness.\n•Optimized workflow with GulpandWebpack for building ES6 modules and automating tasks.\n•Configured email sending functionality using PHPmodules.\nWeb store | Apip Jul 2024 - Sep 2024\n•Built a web store backend using Python, FastAPI , and SQLite, ensuring efficient data management and seamless API\nperformance.\n•Implemented database migrations with Alembic to maintain schema consistency across development stages. Utilized\nPydantic for data validation and SQLAlchemy for robust database interaction, optimizing data handling and queries.\nClothing Store - Fullstack Project Sep 2024 - Current\n•Applied CSS, Next.js, MongoDB, TypeScript , adapted migrations using Alembic andOAUth\n•Developed full-stack functionality using Next.js, TypeScript andMongoDB to create a dynamic and responsive\ne-commerce platform. Integrated OAuth for secure user authentication and authorization, enhancing the security of the\napplication.\nTechnical Skills\nLanguages : English, Russian, Polish\nDeveloper Tools : Python, JavaScript, Git/GitHub, SQL, Docker\nTechnologies/Frameworks : Django, FastAPI, React"
+        },
+        "total_score": 0.6237688243389129,
+        "bert_similarity": 0.8910983204841614,
+        "skills_match": 0.0
+      }
+    ]
+  },
+  {
+    "vacancy_id": 3,
+    "vacancy_title": "DevOps Engineer",
+    "matches": [
+      {
+        "resume": {
+          "id": 6,
+          "title": "Summary",
+          "experience": "no_experience",
+          "salaryFrom": 150000,
+          "salaryTo": 300000,
+          "currency": "KZT",
+          "workFormat": "office",
+          "education": "higher",
+          "ageFrom": "18",
+          "ageTo": "60",
+          "relocation": false,
+          "area": "Almaty",
+          "description": "Summary\nFrontend developer with a strong background in modernizing and optimizing web projects. Specializes in Vue.js, React and\nTypeScript. Expertise in reducing build sizes, enhancing performance, and seamlessly adopting technologies like Vite.\nProven track record of driving significant improvements in both startup and enterprise environments.\nExperience\nChoco Holding | Almaty, Almaty\nFrontend Developer | 09/2023 - Present\nAccelerated project builds and improved development by migrating 3 projects from Webpack to Vite.\nBuilt and published 6 iOS and Android apps using React Native, establishing a contract between native and WebView.\nCreated a JavaScript barcode scanning library (choco-barcode-scanner) available on npm.\nImproved developer experience by creating a bot for Merge Request notifications. Used in 10+ microservices repositories\nand 5+ frontend repositories. Emphasized on reducing time to TTM\nSuccessfully migrated 2 projects from JavaScript to TypeScript. This made the code easier to maintain and scale\nSuccessfully migrated 3 Vue projects to Script Setup. Observed best practices\nOptimized the client application (SPA). Reduced build weight from 5.3MB to 4.16MB, improved code utilization from 45%\nto 67%. Implemented asynchronous page loading. Accelerated page loading in co-op.\nAdditional: Worked with Lottie and Vanilla CSS animations to improve the interface, with Yandex and 2gis maps.\nVue2/3, Typescript, React Native, Vite, Webpack, Vitest, Jest, Docker, Gitlab CI, WebView\nHalyk Bank | Almaty, Almaty\nFrontend Developer | 06/2022 - 09/2022\nDuring my tenure at Halyk Bank's Online Banking Department, I focused on enhancing Developer Experience through auto-\ngenerated documentation and collaboration efforts.\nEnhanced Developer Experience (DX) by implementing auto-generated documentation and crafting comprehensive\ninstallation instructions, fostering smooth collaboration across teams.\nContributed to UI-library enhancements, ensuring consistency and an enhanced user experience.\nSpearheaded technical optimizations including codebase refinement and universal functionality\nimplementation.\nAngular, TypeScript, RxJS, Storybook\nChoco Holding | Almaty, Almaty\nFrontend Developer | 02/2022 - 05/2022\nActively contributed to the development and enhancement of the user interface and merchant interface.\nConducting redesign and refactoring of the menu, improving the user experience and streamlining the application\nworkflow.\nFixing errors and bugs in RahmetBiz functionality related to our service, including editing categories and products, as well\nas ensuring the proper functioning of automatic online order disabling.\nAssisting in the integration with IIKO, enhancing the interaction process between systems.\nParticipating in the redesign process of the homepage and map, including the navigation panel, markers, and header.\nVue2/3, Webpack, Vue test utils, Jest, Docker\nDAR | Almaty, Almaty\nFrontend Developer Internship | 08/2021 - 11/2021\nFirst Frontend Development Summer Internship - DAR Summer Internship\nReact, TypeScript, Redux, Redux-saga, SCSS\nMorrison Code | Almaty, Almaty\nSupport Mentor | 03/2021 - 06/2021Asatulla Dadabaev\n+77079986392 | debixxter@gmail.com | Almaty, AlmatyProvided mentorship for the \"Web Development\" course, covering HTML, CSS, JavaScript, jQuery, and React.js.\nAssisted students with code-related queries and corrections, tracked progress, and delivered weekly supplementary\nlectures.\nReviewed and provided feedback on assignments to reinforce understanding.\nSkills\nJavaScript, Typescript, Python, HTML/CSS, Vue, Nuxt, React, React Native, Astro, Node.js, Vite, Webpack, Vitest, Jest,\nVue Test Utils, CI/CD/, Docker\nEducation\nAlmaty Management University | Almaty, Almaty\nBachelor of Software Engineering, Computer Science | 07/2023\nAward:\nIOKA Fintech Hackathon 2021 Winner\nKazEnergy StudentDigitalFest-2022 Winner\nALMAU Startup Night 2019 Winner(Go Pau Team)\nAlmaty Case Competition Winner(TBS TEAM)"
+        },
+        "total_score": 0.8339960396289825,
+        "bert_similarity": 0.8699943423271179,
+        "skills_match": 0.75
+      },
+      {
+        "resume": {
+          "id": 1,
+          "title": "Loading...",
+          "experience": "no_experience",
+          "salaryFrom": 150000,
+          "salaryTo": 300000,
+          "currency": "KZT",
+          "workFormat": "office",
+          "education": "higher",
+          "ageFrom": "18",
+          "ageTo": "60",
+          "relocation": false,
+          "area": "Almaty",
+          "description": "Loading...\n32\u0000 Professional Resume Designs\n100,000\u0000 Pre-Written Phrases\n15,000\u0000 Job Titles\n9 Template Color OptionsResume Preview\u0000\nAZ\nAIBEK  ZHUMASH\naibek22101999@gmail.com | +77024268196 | Almaty  | WWW : https://t.me/ZhumashAibek |\nWWW : https://www .linkedin.com/in/aibek-zhumash/  \nSummary\nStrong middle backend engineer with 4+ years of experience and product mindset. Currently , I'm working as a core Go Developer in\nan EdT ech platform for ML/AI contests in WB.\nI look forward to a new experience at big tech companies with high-load and complex challenges or at ambitious startups that aren't\nafraid to change the world.\nSkills\nGolang\nPHP\nLaravel\nPostgreSQLRabbitMQ\nRedis\nDocker\nKubernetes\nCareer Objective\nBackend Engineer | Go Developer\nExperience\nWildberries\nGo Developer\n05/2024  - Curr entBuilding and designing a platform for Ml contests\nChoco - Smart Restaurant (FoodT ech Startup)\nAlmaty\nGo Developer\n07/2022  - 04/2024• Designed and developed a stories service\n• Built from a scratch a food recommendation system based on customer purchases\nthat has increased conversion by 7%\n• Developed a direction of vending based on the main product\n• Developed a restaurant delivery product\n• Implementation of a DevOps approach for development together with team lead\n• Integrated telegram bot for:\n• Notiﬁcation of web users about order statuses\n• Content manager as a convenient tool to speed up ﬁlling out menu content\n• Notiﬁcation about a new mer ge requests built in CI\n• Collaborated with co-workers to establish backend conventions, patterns and\ndevelopment processes\nChoco - Smart Restaurant (FoodT ech Startup)\nAlmaty\nPHP  Developer\n12/2021  - 07/2022• Integration with restaurant cash systems such as iiko, r -keeper\n• Refactoring and\nmigrating microservices from PHP  to Go\n• Improvement of some scrum activities (Introduction of team code reviews and\n“Inconvenient questions” in 1:1 and 180)\nAdata  | Almaty\nPHP  Developer\n05/2020  - 12/2021• Breaking a monolith into microservices based on DDD\n• Implementation of user subscription\n• Optimized SQL  queries for lar ge amount of aggregated data\nAdata  | Almaty\nC# Developer\n10/2019  - 05/2020• Implemented web scrappers in C# for 20 distinct sources\n• Using asynchronous tasks to speed up work\nEducation and Training\nInternational Information Technologies University Almaty\nBachelor  of Science  in Systems of Information Security\n06/20216/13/24, 4:50 PM Resume Builder\nﬁle:///Users/aibekzhumash/Downloads/More Section - Resume Now.html 1/1"
+        },
+        "total_score": 0.7404763400554657,
+        "bert_similarity": 0.8435376286506653,
+        "skills_match": 0.5
+      },
+      {
+        "resume": {
+          "id": 7,
+          "title": "Milena Tyutneva",
+          "experience": "no_experience",
+          "salaryFrom": 150000,
+          "salaryTo": 300000,
+          "currency": "KZT",
+          "workFormat": "office",
+          "education": "higher",
+          "ageFrom": "18",
+          "ageTo": "60",
+          "relocation": false,
+          "area": "Almaty",
+          "description": "Milena Tyutneva\nSoftware Engineer\n/envel⌢pemilena030703@gmail.com /linkedinfincher-milena /githubmttesla ♂¶obile+77086143488 ♂¶ap-¶arkerAlmaty, Kazakhstan\nEducation\nUniversity of Economics and Human Sciences Warsaw, Poland\nData Science 2023-present\n•Selected Coursework: Advanced Python | ML concepts | Database Architectures | Java in OOP\nTechnical School im. Z.Chmielewskiego in Nałęczow Lublin, Poland\nComputer Science 2018-2022\n•Selected Coursework: Performance, Data Structures and Algorithms | C++ | JavaScript | Networking\nExperience\nnFactorial School Almaty, Kazakhstan\nBack-end Engineer Mar 2024 - Oct 2024\n•Worked with Python, FastAPI, Django, Docker, SQLite, Git\nRoboto Global Warsaw, Poland\nFront-end Developer Feb 2023 - Mar 2024\n•Designed forms, authorisation, registration using HTML, SCSS, JavaScript, PHP\n•Writing CRUD queries using REST Api .\n•Engaged in supporting the current architecture.\nCareer break Lublin, Poland\nDiploma Year | Foundation Dec 2021 - June 2022\n•Successfully defended Diploma web-project and passed final examinations\nAES meg.kz Almaty, Kazakhstan\nSoftware Engineer | Software Development team Jul 2021 - Nov 2021\n•Developed software using Python, MySQL, Git .\nPersonal or Side Projects\nInternet stores | MonMou, Beautis Jan 2021 - Mar 2021\n•Developed front-end using JavaScript, PHP, HTML, SCSS , improving cross-browser compatibility and\nresponsiveness.\n•Optimized workflow with GulpandWebpack for building ES6 modules and automating tasks.\n•Configured email sending functionality using PHPmodules.\nWeb store | Apip Jul 2024 - Sep 2024\n•Built a web store backend using Python, FastAPI , and SQLite, ensuring efficient data management and seamless API\nperformance.\n•Implemented database migrations with Alembic to maintain schema consistency across development stages. Utilized\nPydantic for data validation and SQLAlchemy for robust database interaction, optimizing data handling and queries.\nClothing Store - Fullstack Project Sep 2024 - Current\n•Applied CSS, Next.js, MongoDB, TypeScript , adapted migrations using Alembic andOAUth\n•Developed full-stack functionality using Next.js, TypeScript andMongoDB to create a dynamic and responsive\ne-commerce platform. Integrated OAuth for secure user authentication and authorization, enhancing the security of the\napplication.\nTechnical Skills\nLanguages : English, Russian, Polish\nDeveloper Tools : Python, JavaScript, Git/GitHub, SQL, Docker\nTechnologies/Frameworks : Django, FastAPI, React"
+        },
+        "total_score": 0.671884024143219,
+        "bert_similarity": 0.7455486059188843,
+        "skills_match": 0.5
+      },
+      {
+        "resume": {
+          "id": 3,
+          "title": "FAIZOLLA AMANBEK",
+          "experience": "no_experience",
+          "salaryFrom": 150000,
+          "salaryTo": 300000,
+          "currency": "KZT",
+          "workFormat": "office",
+          "education": "higher",
+          "ageFrom": "18",
+          "ageTo": "60",
+          "relocation": false,
+          "area": "Almaty",
+          "description": "FAIZOLLA AMANBEK\n+77073267850 •rahugg07@gmail.com •linkedin.com/in/amanbek-faizolla •github.com/Rahugg\nОБРАЗОВАНИЕ\nКазахстанско-Британский Технический Университет Выпуск 2021 - 2025\nB.S. Вычислительная Техника и Программное Обеспечение 3.7/4.00 GPA\nДисциплины: Алгоритмы и Структуры Данных, ООП, Разработка высоко нагруженных систем, Дискретная Математика,\nВысшая Математика, Линейная Алгебра\nТЕХНИЧЕСКИЕ НАВЫКИ\nЯзыки Программирования: JavaScript, Golang, Python, C++, Java\nФреймворки и Базы Данных: PostgreSQL, Redis, React, Angular, Gin, Django\nТехнологии: Git, Linux, Docker, gRPC, Swagger, Kafka, Prometheus, Grafana, Rest API\nОПЫТ РАБОТЫ\nBackend Developer at Feedback, Almaty, KZ Авг 2023 – Настоящее время\n•Самостоятельно изучил Golang и реализовал сложные функции, преодолевая проблемы интеграции многофункци-\nональных систем.\n•Разработал микросервис для оценки событий в реальном времени с помощью QR-кода, интегрировал веб-\nсокеты , используя паттерны конкурентного программирования на языке Golang , что значительно увеличило ско-\nрость и отзывчивость микросервиса в 3 раза .\n•Подключил Redis для кэширования данных , существенно ускорив время отклика приложения , улучшив общую\nпроизводительность.\n•Сократил количество ошибок в коде за счет рефакторинга существующей кодовой базы, добавил документацию\nдля сервисов с помощью Swagger.\nFullstack Developer at Ligeia.AI, Almaty, KZ Янв 2023 – Июн 2023\n•Разработал сайт в команде из 5 человек для конкретного предприятия с использованием Django ,PostgreSQL и\nReact добившись активности в 1000+ пользователей.\n•Создал виджет областной диаграммы в реальном времени на React, улучшив визуализацию и понимание данных\nдля команды.\n•Автоматизировал извлечение данных, увеличив скорость на 20% с помощью Python и pandas для конвертации в\nCSV.\nОБУЧЕНИЕ\nNfactorial Incubator 2022, Almaty, KZ Июн 2022 – Авг 2022\n•Среди4 000 претендентов, получил место среди 150 отобранных участников 10-недельного международного\nBootcamp\n•Решил алгоритмические задачи, развил Soft skills ,создал full-stack приложение со стеком MERN\n•Исправил ошибки в приложении, используя полученные знания о Linux, Git и клиент-серверной архитектуры , а\nтакже создал full-stack на базе React для поиска аниме-цитат.\nПРОЕКТЫ\nCRM-system Сен 2023 - Дек 2023\nСсылка на проект\n•Спроектировал и реализовал с нуля микросервисную архитектуру для приложения, используя широкий стек\nтехнологий: Golang, PostgreSQL, gRPC, Docker, Grafana, Prometheus, Kafka и Redis\n•Внедрил Rest API для общения с клиентом и gRPC для межсервисной коммуникации, обеспечивая эффективное\nвзаимодействие компонентов системы.\n•Интегрировал Docker и Docker-compose для контейнеризации приложения , что повысило скорость запуска в 5\nраз, оптимизируя процесс развертывания.\n•Подключил метрики для отслеживания нагрузки и добавил профилирование и управление событиями на основе\nKafka , обеспечивая надежность и производительность системы."
+        },
+        "total_score": 0.59817556142807,
+        "bert_similarity": 0.6402508020401001,
+        "skills_match": 0.5
+      }
+    ]
+  },
+  {
+    "vacancy_id": 4,
+    "vacancy_title": "Business Analyst",
+    "matches": []
+  },
+  {
+    "vacancy_id": 5,
+    "vacancy_title": "Machine Learning Engineer",
+    "matches": [
+      {
+        "resume": {
+          "id": 7,
+          "title": "Milena Tyutneva",
+          "experience": "no_experience",
+          "salaryFrom": 150000,
+          "salaryTo": 300000,
+          "currency": "KZT",
+          "workFormat": "office",
+          "education": "higher",
+          "ageFrom": "18",
+          "ageTo": "60",
+          "relocation": false,
+          "area": "Almaty",
+          "description": "Milena Tyutneva\nSoftware Engineer\n/envel⌢pemilena030703@gmail.com /linkedinfincher-milena /githubmttesla ♂¶obile+77086143488 ♂¶ap-¶arkerAlmaty, Kazakhstan\nEducation\nUniversity of Economics and Human Sciences Warsaw, Poland\nData Science 2023-present\n•Selected Coursework: Advanced Python | ML concepts | Database Architectures | Java in OOP\nTechnical School im. Z.Chmielewskiego in Nałęczow Lublin, Poland\nComputer Science 2018-2022\n•Selected Coursework: Performance, Data Structures and Algorithms | C++ | JavaScript | Networking\nExperience\nnFactorial School Almaty, Kazakhstan\nBack-end Engineer Mar 2024 - Oct 2024\n•Worked with Python, FastAPI, Django, Docker, SQLite, Git\nRoboto Global Warsaw, Poland\nFront-end Developer Feb 2023 - Mar 2024\n•Designed forms, authorisation, registration using HTML, SCSS, JavaScript, PHP\n•Writing CRUD queries using REST Api .\n•Engaged in supporting the current architecture.\nCareer break Lublin, Poland\nDiploma Year | Foundation Dec 2021 - June 2022\n•Successfully defended Diploma web-project and passed final examinations\nAES meg.kz Almaty, Kazakhstan\nSoftware Engineer | Software Development team Jul 2021 - Nov 2021\n•Developed software using Python, MySQL, Git .\nPersonal or Side Projects\nInternet stores | MonMou, Beautis Jan 2021 - Mar 2021\n•Developed front-end using JavaScript, PHP, HTML, SCSS , improving cross-browser compatibility and\nresponsiveness.\n•Optimized workflow with GulpandWebpack for building ES6 modules and automating tasks.\n•Configured email sending functionality using PHPmodules.\nWeb store | Apip Jul 2024 - Sep 2024\n•Built a web store backend using Python, FastAPI , and SQLite, ensuring efficient data management and seamless API\nperformance.\n•Implemented database migrations with Alembic to maintain schema consistency across development stages. Utilized\nPydantic for data validation and SQLAlchemy for robust database interaction, optimizing data handling and queries.\nClothing Store - Fullstack Project Sep 2024 - Current\n•Applied CSS, Next.js, MongoDB, TypeScript , adapted migrations using Alembic andOAUth\n•Developed full-stack functionality using Next.js, TypeScript andMongoDB to create a dynamic and responsive\ne-commerce platform. Integrated OAuth for secure user authentication and authorization, enhancing the security of the\napplication.\nTechnical Skills\nLanguages : English, Russian, Polish\nDeveloper Tools : Python, JavaScript, Git/GitHub, SQL, Docker\nTechnologies/Frameworks : Django, FastAPI, React"
+        },
+        "total_score": 0.905440092086792,
+        "bert_similarity": 0.8649144172668457,
+        "skills_match": 1.0
+      },
+      {
+        "resume": {
+          "id": 8,
+          "title": "ASTANA IT UNIVERSITY , ASTANA(KAZAKHSTAN) - BACHELOR OF",
+          "experience": "no_experience",
+          "salaryFrom": 150000,
+          "salaryTo": 300000,
+          "currency": "KZT",
+          "workFormat": "office",
+          "education": "higher",
+          "ageFrom": "18",
+          "ageTo": "60",
+          "relocation": false,
+          "area": "Almaty",
+          "description": "ASTANA IT UNIVERSITY , ASTANA(KAZAKHSTAN) - BACHELOR OF\nCOMPUTER SCIENCE (SOFTWARE ENGINEERING) 2020-2023\nMember, Media club\nMember, AITU volunteers\nCisco IT essentials course\nMicrosoft Power BI Desktop for BI Desktop for Business Intelligence\nAmazon Open Search - open source project from Amazon\nUniversity Of Genova , Genova(Italy) - Masters Degree of Computer\nScience (Software engineering) - 2023-nowALI KAISARBEKSOFTWARE ENGINEER\nGET IN CONTACT ABOUT ME\nHARD SKILLS\nOTHER SKILLSWORK EXPERIENCE\nEDUCATION HISTORYMobile: +77714355477  \nLocated: Italy, GenovaEmail: alikaisarbek@mail.ruAs a passionate Quality Assurance\nprofessional, I am involved in manual testing,\nleveraging tools like Selenium, JIRA, and\nPostman to ensure software exceeds user\nexpectations. My expertise spans the\nsoftware development lifecycle, emphasizing\na culture of quality from design to release.\nKnown for innovative problem-solving and\neffective collaboration\nDatabase management system\nPostgreSql, Oracle, PLpgSql\nJava , Python\nWeb development\nFigma\nTrello\nProject management  \nSelenide\nSelenium\nPostman\nTestNg\nGitHub\nChrome DevTools\nBrowserstack\nLeadership (team leader)\n Detail oriented\nExcellent problem solver  \nMobility\nPurposefulness\nAbility to work in a teamTelegram: @admissli\nLocal startup in Ust-Kamenogorsk   06-2021 - 08-2021\nbuilding business processes and increasing user demand up to 500\nProject manager at Astana Hub (EdTech product, FocusEdnow) 01.01.2022 -\n15.05.2022\nresponsible for overseeing project planning, execution, and completion, assigning\ntasks, managing resources, monitoring progress, communicating with\nstakeholders, and managing project documentation.\nProgramming tutor at global school \"Algoritmika\" 20.05.2022 - 11.09.2022\nTaught 30+ children new skills like programmin g in python, java, scratch as well\nas creating a game using roblox\nData engine er at АО «Казахстанская Жилищ ная Компания»,   creating a data\nwarehouse 25.09.2022 - 12.01.2023\nI have  worked in the \"Department of Analysis and Strategy\" and in the\n\"Department of Business Processes and Digital Development\". I was accepted for\na project to create a Data Warehouse for the company. work with collecting data\nfrom financ ial and project reports on the documents of the department of\nguarantee, the department of conclusion, and loan debt, work with postgreSql,\nPowerBi, Postman, Anaconda\nOOO \"DN.RU\" Software Quality Assurance and Testing   01.12.2022 - now\nTesting of mobile and web applications for compliance with requirements and\nspecifications;\nCreation of test cases and test plans;\nAnalysis of test results and documentation of errors found;\nInteraction with developers and project manage rs to correct errors and improve\nthe quality of the product.\nAPI testing\nParticipating in the development of testing processes\nKazakh (Level : Native language)\nRussian(Level : Advanced C2)  \nEnglish (Level : Advanced C1)L A N G U A G E S\n"
+        },
+        "total_score": 0.5693181842565536,
+        "bert_similarity": 0.38474026322364807,
+        "skills_match": 1.0
+      }
+    ]
+  }
+]
